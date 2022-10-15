@@ -1,0 +1,28 @@
+table{
+    border-collapse: collapse;
+    background-color: aqua;
+}
+th,td{
+    border: 5px solid;
+    padding: 30px;
+    text-align: center;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    font-size: 30px;
+}
+label{
+    line-height: 2;
+    font-weight: bold;
+    font-family: cursive
+}
+input{
+    font-weight: bold;
+    padding: 4px;
+    margin-right: 5px;
+}
+h3{
+    color:rgb(0, 145, 255);
+}

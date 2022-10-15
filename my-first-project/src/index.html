@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyFirstProject</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root>Loading...</app-root>
+</body>
+</html>
+
+
+
+
+
+
+<!-- Hi!
+
+All components have to be declared in a module. Only the root component has to be added in the bootstrap array.
+
+Jost
+
+
+
+
+
+-----
+
+This is the general mechanism:
+
+The browser looks by default for an index.html file first (this is the same for an Angular app like for a traditional web app, since the browser can't know in advance the type of our app).
+
+When your app is compiled, the JavaScript bundles are appended in script tags to index.html (as you can see in the Elements tab of the browser’s dev tools, or if you inspect the source code of your app with Ctrl + U).
+
+Angular starts with the main.ts file, which is on top of the main.js bundle. There AppModule is defined as bootstrapModule (Note: bootstrap in general means loading and initializing your app, this name is not related at all to the well-known CSS framework).
+
+In AppModule’s bootstrap array AppComponent is defined as the root component of the app. The selector of this component, app-root, is defined in app.component.ts. Angular finds this selector in index.html, initializes this component and inserts the generated HTML from the template in index.html.
+
+All other components are nested into the root component directly or indirectly, either by placing their selectors into the template of their parent component, or by defining routes in AppModule resp. AppRoutingModule, in combination with their related <router-outlet> selectors.
+
+When Angular finds a selector somewhere in a template, it knows which component or directive has to be applied in this place. Angular knows all the selectors and their related components/directives since they are registered in their module's declarations array.
+
+
+
+BTW:
+
+Splitting up the app in multiple small components is something we need to get comfortable with not only when working with Angular.
+
+This nested tree structure is the basic principle in all modern frameworks, like e.g. Angular, React and Vue for web development with JS, or Flutter for mobile development with Dart - simply since this is the best (known) architecture for these apps.
+
+This architecture has so many advantages that it's worth familiarizing ourself with it, step by step, even though the overhead may very well seem unnecessary at first.
+
+In this way we have small reusable and fully customizable pieces of code which are much better maintainble and readable than it would be with other architectures.
+
+Since all components are well encapsulated, it's relatively easy to track down and fix mistakes in this way, in complex apps.
+
+And it's much more convenient to navigate in the project tree directly to a specific point, than to scroll and search inside long files.
+
+ -->

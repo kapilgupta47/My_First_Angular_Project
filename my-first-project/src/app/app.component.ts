@@ -5,11 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
   //-----Inline Styling--------
-  /*styles:[`
+  /**styles:
+  [`
   h1{
     color:dodgerblue;
   }
-  `]*/
+  `]
+  */
 })
 export class AppComponent {
   title(title: any) {

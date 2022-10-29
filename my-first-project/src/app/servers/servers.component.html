@@ -1,17 +1,37 @@
 <label>Server Name</label>
-<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
 <input type="text" class="form-control" [(ngModel)]="serverName">
 
-<label>First Name</label>
+<!-- <label>First Name</label>
 <input type="text" class="form-control" [(ngModel)]="firstName">
 <label>Last Name</label>
-<input type="text" class="form-control" [(ngModel)]="lastName">
+<input type="text" class="form-control" [(ngModel)]="lastName"> -->
 
 <button class="btn btn-primary" [disabled]="!allowNewServer"
 (click)="onServerCreate()">Add Server</button>
+<!--
 <p>hello how are you {{ serverName }}</p>
 <p>Your full name is {{ firstName }}{{ lastName }}</p>
-<p>{{allowNewServer}}</p> <!--String Interpolation-->
-<p [innerText]="allowNewServer"></p> <!--Property Binding -->
-<p>{{ serverCreationStatus }}</p>
-<app-server></app-server>
+<p>{{allowNewServer}}</p> <!--String Interpolation- ->
+<p [innerText]="allowNewServer"></p> <!--Property Binding - ->
+-->
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated;else noServer">Server was created, server name is {{ serverName }}</p>
+<ng-template #noServer>
+    <p>No server created</p> 
+</ng-template>
+<app-server *ngFor = "let server of servers"></app-server>
+<h1 class="text-primary">Reset User Implementation</h1>
+<label>Username</label>
+<input placeholder="Enter 8 characters or more" type="text" class="form-control" [(ngModel)]="username">
+<p>{{ username }}</p>
+<button class="btn btn-success" [disabled]="username===''" (click)="username=''">Reset</button>
+<p>Strength = {{username.length}}</p>
+<h1 class="text-info">Last Assignment of this section</h1>
+<!-- <button class="btn btn-primary" (click) = "showSecret = !showSecret">Display Details</button> -->
+<button class="btn btn-primary" (click) = "onToggleDisplay()">Display Details</button>
+<p *ngIf="showSecret">Secret Password = secret</p>
+<div *ngFor = "let logs of log; let i = index"
+    [ngStyle] = "{backgroundColor: i >=4 ? 'blue' :'white',fontStyle:'italic'}"
+    [ngClass] = "{'white-text':i >= 4}"
+>{{logs}}</div>

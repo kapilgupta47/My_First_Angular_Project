@@ -18,6 +18,13 @@ export class ServersComponent implements OnInit {
   serverName = 'Kapil';
   firstName='';
   lastName='';
+  username='';
+  words=0;
+  serverCreated = false;
+  servers = ['TestServer','TestServer 2'];
+  showSecret = false;
+  log = [];
+
   constructor() { 
     setTimeout(()=>{
       this.allowNewServer=true;
@@ -28,9 +35,24 @@ export class ServersComponent implements OnInit {
   }
 
   onServerCreate(){
-    return this.serverCreationStatus='Server created';
+    this.serverCreated=true;
+    this.servers.push(this.serverName); //push the user defined list other than two
+    return this.serverCreationStatus='Server created! Name is ' + this.serverName;
   }
   onUpdateServerName(event: any){
     this.serverName = event.target.value;
+  }
+  // wordCounter(username:any){
+  //   var words = username.split("").length;
+  //   return words;
+  // }
+  charLimit(){
+    return this.username.length;
+  }
+
+  onToggleDisplay(){
+    this.showSecret = !this.showSecret;
+   // this.log.push(this.log.length+1); //strict mode:off; otherwise log:number[]=[];
+   this.log.push(new Date());
   }
 }
